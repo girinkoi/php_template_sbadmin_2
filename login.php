@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true) {
+
+        header('Location: index.php');
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,15 +50,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="login.php" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." name="email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,9 +67,10 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
+
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -69,6 +79,25 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
+                                    <?php
+                                        if(isset($_POST['submit'])==True){
+                                            $email = $_POST['email'];
+                                            $password = $_POST['password'];
+                                            $is_submit = $_POST['submit'];
+                                            
+                                            // Dummy authentication for demonstration
+                                            if($email == 'arbanijadin@gmail.com' && $password == '12345'){
+                                                $_SESSION['is_logged_in'] = true;
+                                                header('Location: index.php');
+                                                echo "<div class='alert alert-success' role='alert'>Login successful!</div>";
+                                            } elseif ($email == '' || $password == '') {
+                                                echo "<div class='alert alert-warning' role='alert'>Please fill in all fields.</div>";  
+                                            }else{
+                                                 echo "<div class='alert alert-danger' role='alert'>Invalid email or password.</div>";
+                                            }
+
+                                        }
+                                    ?>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>

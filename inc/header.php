@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['is_logged_in']) == false) {
+
+    header('Location: login.php');
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

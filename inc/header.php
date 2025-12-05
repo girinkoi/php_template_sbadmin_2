@@ -6,6 +6,9 @@ if (isset($_SESSION['is_logged_in']) == false) {
     header('Location: login.php');
     
 }
+
+
+include 'inc/connect.php';
 ?>
 
 <!DOCTYPE html>

@@ -31,18 +31,21 @@
                     <i class="fas fa-fw fa-clipboard-list   "></i>
                     <span>Blank Page</span></a>
             </li>
-
-                        <li class="nav-item">
-                <a class="nav-link" href="form_add.php">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Form Add</span></a>
-            </li>
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="groups_table.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Groups</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="users_table.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Users</span></a>
             </li>
 
             <!-- Divider -->
